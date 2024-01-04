@@ -33,7 +33,7 @@ jobs:
 
       - name: Check for "Đang chuyển hướng" in index file
         run: |
-          if grep -q "Đang chuyển hướng" ./path/to/index.html; then
+          if grep -q "Đang chuyển hướng" /src/main/resources/static/index.html; then
             echo "The phrase 'Đang chuyển hướng' is present in the index file."
           else
             echo "The phrase 'Đang chuyển hướng' is not present in the index file."
