@@ -21,8 +21,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set pom file path
-      run: echo "pom_file_path=$(pwd)/pom.xml" >> $GITHUB_ENV
+
 
     - name: Build
       run: mvn clean package -f ${{ env.pom_file_path }}
@@ -34,7 +33,10 @@ jobs:
         distribution: 'temurin'
         maven-version: '3.2.0'  # Thay phiên bản Maven tương ứng
         cache: maven
-
+        
+    - name: Set pom file path
+      run: echo "pom_file_path=$(pwd)/pom.xml" >> $GITHUB_ENV
+      
     - name: Xem chi tiết lỗi pom.xml
       run: mvn clean package -e
     - name: Bật debug logging 
